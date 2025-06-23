@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Chat Session</title>
+    <style>
+    .chat-box { margin-bottom: 15px; padding: 15px; background: #f0f0f0; border-radius: 8px; }
+    .user { color: #333; font-weight: bold; }
+    .bot { color: #007acc; }
+</style>
+</head>
+<body>
+    <h2>Chat with Gemini</h2>
+
+{% for chat in chats %}
+    <div class="chat-box">
+        {% if chat.sender == 'user' %}
+            <p><strong>You:</strong> {{ chat.content }}</p>
+        {% else %}
+            <p><strong>Gemini:</strong> {{ chat.content }}</p>
+        {% endif %}
+        <small>{{ chat.timestamp }}</small>
+    </div>
+{% endfor %}
+</body>
+</html>
